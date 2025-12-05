@@ -1,15 +1,7 @@
-# Stage 1: Build with Maven
-FROM maven:3.9.0-eclipse-temurin-17-alpine AS builder
-WORKDIR /app
-COPY pom.xml .
-COPY src ./src
-RUN mvn clean package -DskipTests
-
-# Stage 2: Run with lightweight JREs
 FROM eclipse-temurin:17-jre-alpine
-WORKDIR /app
-COPY --from=builder /app/target/*.jar app.jar
 
-EXPOSE 9080
+WORKDIR /app
+
+COPY target/vg-ms-institution-management-0.0.1-SNAPSHOT app.jar
 
 ENTRYPOINT ["java", "-jar", "app.jar"]
