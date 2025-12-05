@@ -18,7 +18,7 @@ import pe.edu.vallegrande.vgmsinstitutionmanagement.infrastructure.dto.response.
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 import java.util.List;
-@CrossOrigin(origins = "*")
+
 @RestController
 @RequestMapping("/api/v1/institutions")
 @RequiredArgsConstructor
